@@ -1,159 +1,96 @@
-💳 Real-Time Credit Card Fraud Detection with Machine Learning
+# 💳 Credit Card Fraud Detection (Real-Time)
 
-Fraudulent transactions are rare, but their impact on financial institutions and customers is massive. This project tackles the credit card fraud detection problem using machine learning, imbalanced learning techniques, and real-time prediction capabilities.
+A machine learning project that detects fraudulent transactions in **real-time**, with a clean **frontend interface** for better usability.  
+This project applies **data science + machine learning + frontend integration** to simulate how fraud detection systems work in real-world banking applications.
 
-It demonstrates how to:
+---
 
-Build a robust ML pipeline,
+## 🚀 Features
+- ✅ **Machine Learning Model** trained on credit card transaction dataset  
+- ✅ **Real-Time Prediction** capability using backend APIs  
+- ✅ **User-Friendly Frontend** (input transaction details, get instant fraud prediction)  
+- ✅ **Well-structured pipeline**: preprocessing → training → evaluation → prediction  
+- ✅ **Scalable architecture** (can be deployed to the cloud in the future)  
 
-Handle extreme class imbalance (fraud <1%),
+---
 
-Deploy fraud detection logic with a Flask-powered frontend for interactive use.
+## 🛠️ Tech Stack
+- **Python (pandas, scikit-learn, numpy, matplotlib, seaborn)** – data handling & ML  
+- **Flask / FastAPI** – backend for serving ML model  
+- **JavaScript + HTML + CSS** – frontend for real-time input  
+- **Joblib / Pickle** – model persistence  
 
-🚀 Key Features
+---
 
-Data Preprocessing
+## 📊 Dataset
+- The project uses the **Kaggle Credit Card Fraud Detection dataset**.  
+- Contains anonymized transactions made by European cardholders in September 2013.  
+- Highly **imbalanced dataset** (fraud cases ≈ 0.17%).  
+- [Dataset Link](https://www.kaggle.com/mlg-ulb/creditcardfraud)  
 
-Standard scaling for numerical features.
+---
 
-Robust handling of imbalanced data with SMOTE and ADASYN.
+## ⚙️ How It Works
+1. **Data Preprocessing** – scaling, splitting, handling imbalance (SMOTE / undersampling)  
+2. **Model Training** – tested multiple algorithms (Logistic Regression, Random Forest, XGBoost)  
+3. **Evaluation** – accuracy, precision, recall, F1-score, ROC-AUC  
+4. **Frontend Integration** – enter transaction details & receive fraud/no-fraud prediction in real time  
+5. **Future Scope** – deployment on cloud (Heroku / Render / AWS)  
+ 
 
-Modeling & Evaluation
+---
 
-Explored Logistic Regression, Random Forest, and XGBoost.
+## 🎨 Frontend Preview
+<img width="1899" height="888" alt="image" src="https://github.com/user-attachments/assets/50eb18c6-cfaa-4a51-bbc5-24306871bc9c" />
+<img width="1796" height="879" alt="image" src="https://github.com/user-attachments/assets/bf3dc009-0e32-4640-babe-be5420457213" />
+<img width="1920" height="885" alt="image" src="https://github.com/user-attachments/assets/b43be407-c6da-4539-9b57-66e8992301cb" />
 
-Hyperparameter tuning with GridSearchCV + Stratified K-Fold CV.
-
-Evaluation with imbalanced metrics: ROC-AUC, Precision-Recall, F1-score, Confusion Matrix.
-
-Interpretability
-
-Feature importance visualizations.
-
-Business insights into which features drive fraud detection.
-
-Frontend & Real-Time Prediction
-
-Flask + Jinja2 based web interface.
-
-Clean UI with CSS styling for easy interaction.
-
-Model serialized with joblib for instant fraud predictions.
-
-Deployment-Ready
-
-Dockerized for portability.
-
-Includes Git LFS setup for handling large model artifacts.
-
-📊 Dataset
-
-Source: Kaggle – Credit Card Fraud Detection
-
-Features:
-
-V1 … V28 → PCA-anonymized components
-
-Time, Amount
-
-Target:
-
-Class → 0 = legitimate, 1 = fraud
-
-Challenge: Extremely imbalanced dataset (fraud ~0.17%).
-
-📂 Project Structure
-.
-├── app.py                       # Flask backend for real-time fraud detection
-├── detection.py                 # Training, tuning, and evaluation pipeline
-├── train_model.py               # Script for retraining models
-├── best_fraud_detection_model.joblib  # Serialized ML model
-├── feature_columns.joblib       # Feature schema
-├── static/
-│   └── style.css                # Styling for the frontend
-├── templates/
-│   └── index.html               # Jinja2 template for the frontend
-├── requirements.txt             # Dependencies
-├── Dockerfile                   # For containerized deployment
-├── .gitignore
-└── .gitattributes
-
-🛠️ Tech Stack
-
-Python 3.x
-
-ML/DS: scikit-learn, imblearn, xgboost, numpy, pandas
-
-Visualization: matplotlib, seaborn
-
-Backend: Flask, Jinja2
-
-Deployment: Docker, Git LFS
-
-Serialization: joblib
-
-⚙️ How to Run Locally
-
-Clone the Repository
-
-git clone https://github.com/AmaarDevelops/Realtime-Fraud-Detection-ML-.git
-cd Realtime-Fraud-Detection-ML-
+** After Entering the information of a Fraud Transaction **
+<img width="1724" height="770" alt="image" src="https://github.com/user-attachments/assets/29013483-8a97-4bfe-97b4-2a1f2ba9016e" />
 
 
-Set Up Virtual Environment
-
-python -m venv venv
-source venv/bin/activate   # macOS/Linux
-.\venv\Scripts\activate    # Windows
 
 
-Install Dependencies
+
+
+
+
+---
+
+## 🚀 Getting Started
+### Clone Repository
+
+git clone https://github.com/your-username/credit-card-fraud-detection.git
+cd credit-card-fraud-detection
+Install Requirements
 
 pip install -r requirements.txt
-
-
-Download Dataset from Kaggle and place creditcard.csv in the project root.
-
-Run Training (optional)
-
-python train_model.py
-
-
-Launch the App
+Run Backend
 
 python app.py
+Open Frontend
+Navigate to index.html in your browser
 
+Enter transaction details → Get fraud prediction
 
-Visit http://127.0.0.1:5000/ in your browser.
+📌 Future Improvements
 
-📈 Results
+🌐 Deploy on Heroku / Render / AWS
 
-Best model: XGBoost + ADASYN
+📊 Add model explainability (SHAP / LIME)
 
-Achieved ROC-AUC ≈ 0.985 on test set.
+📱 Create a mobile-friendly UI
 
-Strong recall on minority class (fraud), reducing false negatives.
-
-Feature importance plots revealed key fraud-driving features.
-
-🌍 Real-World Impact
-
-This system mimics how real fraud detection pipelines work in fintech companies:
-
-Detects fraudulent transactions in near real-time.
-
-Demonstrates how ML can protect both banks and customers from financial loss.
+⚡ Enhance backend with FastAPI + WebSockets for even faster predictions
 
 🤝 Contributing
+Pull requests are welcome! Feel free to fork and improve this project.
 
-Contributions are welcome!
+🧑‍💻 Author
+Amaar
 
-Fork this repo
+LinkedIn: https://www.linkedin.com/in/amaar-ali-127800343/
 
-Open issues for suggestions or improvements
 
-Submit PRs for enhancements
 
-📧 Contact
-
-For questions, feedback, or collaboration opportunities, connect with me on GitHub: @AmaarDevelops or LinkedIn :-  https://www.linkedin.com/in/amaar-ali-127800343/ .
+⭐ If you like this project, give it a star on GitHub!
